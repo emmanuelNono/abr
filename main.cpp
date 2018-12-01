@@ -1,4 +1,4 @@
-#include"arbreBinaire.h"
+#include "arbreBinaire.h"
 
 using namespace std;
 /*
@@ -27,10 +27,19 @@ void ArbreABR::Inserer(int dat)
 int main()
 {
     arbreBinaire B{};
-    a.insertABR(6);
+    int minAbr;
+    B.insertABR(10);
+    B.insertABR(11);
+    B.insertABR(5);
+    B.insertABR(15);
+    B.insertABR(14);
+    B.insertABR(2);
+    B.affiche();
 
+    minAbr = B.supprimeMinimunABR();
+    cout << "suppresion reussite de " << minAbr;
+    B.affiche();
 
-    cout << "insertion reussite" << endl;
-     a.affiche();
+     //B.supprimeABR(6);
     return 0;
 }

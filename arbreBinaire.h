@@ -17,6 +17,7 @@ public:
     bool operator==(const arbreBinaire& A) const;
     void insertABR(int k);
     bool supprimeABR(int k);
+    int supprimeMinimunABR();
 private:
     noeud *racine;
 };

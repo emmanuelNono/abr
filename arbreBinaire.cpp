@@ -25,7 +25,7 @@ void arbreBinaire::insertABR(int k)
 bool arbreBinaire::supprimeABR(int k)
 {
     if (racine == nullptr)
-        racine = false;
+        return false;
     else
         if (k < racine->info)
             racine->sag.supprimeABR(k);
@@ -39,16 +39,30 @@ bool arbreBinaire::supprimeABR(int k)
                 return true;
             }
         }
-
-
 }
 
+int arbreBinaire::supprimeMinimunABR()
+{
+    if (racine->sad.racine == nullptr)
+    {
+        noeud *p =racine;
+        int min = racine->info;
+        racine = racine->sad.racine;
+        p->sad.racine=nullptr;
+        delete p;
+        return min;
+    }
+    else
+        return racine->sag.supprimeMinimunABR();
+}
 
 void arbreBinaire::affiche()const
 {
-    if(racine==nullptr)
+    if(racine!=nullptr)
     {
         cout << racine->info<<" "<<endl;
+        racine->sag.affiche();
+        racine->sad.affiche();
     }
 }
 
